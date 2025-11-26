@@ -71,3 +71,6 @@ export default defineConfig([
   },
 ])
 ```
+
+私はziba、あなたの**バーチャルアシスタント**です。
+* **Gitコマンド**の練習用です。
