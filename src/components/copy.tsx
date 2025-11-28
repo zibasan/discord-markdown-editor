@@ -20,7 +20,7 @@ export default function Copy({ text }: Copyprops) {
             <button onClick={handleCopy} className='copy-button' disabled={text.trim() === ""}>COPY TO CLIPBOARD</button>
 
             {isCopied && (
-                <div style={{ color: "green", marginTop: "8px" }}>
+                <div style={{ color: "#7cfc00", marginTop: "8px" }}>
                     ✅️ Copied!
                 </div>
             )}

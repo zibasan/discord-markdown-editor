@@ -15,6 +15,7 @@ body {
     font-family: 'Poppins', 'Yu Gothic UI', 'メイリオ', Meiryo, 'ＭＳ ゴシック', 'ヒラギノ角ゴシック', 'Hiragino Sans', 'ヒラギノ角ゴ StdN', 'Hiragino Kaku Gothic StdN', 'Arial', 'Avenir', sans-serif;
     color: white;
     user-select: none;
+    align-content: center;
 }
 
 @keyframes gradient {
@@ -75,6 +76,9 @@ body {
     margin-top: 0.1px;
 }
 
+.app button {
+    color: white;
+}
 
 .editor {
     width: 550px;
@@ -143,7 +147,8 @@ body {
 }
 
 
-.toolbar button {
+.toolbar button,
+.toolbar2 button {
     margin-top: 10px;
     margin-left: 5px;
     margin-bottom: 1px;
@@ -173,12 +178,7 @@ body {
     transition: background-color 0.2s ease;
 }
 
-.toolbar button:hover:not(:disabled) {
-    background-color: #4452bb;
-    border: 0px;
-    transition: background-color 0.2s ease;
-}
-
+.toolbar button:hover:not(:disabled),
 .toolbar2 button:hover:not(:disabled) {
     background-color: #4452bb;
     border: 0px;
@@ -220,6 +220,7 @@ body {
     flex: 1;
     background-color: rgba(84, 84, 84, 0.4);
     padding: 20px;
+    padding-top: 2px;
     border-radius: 10px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
     border: 1px solid rgba(255, 255, 255, 0.15);
@@ -233,7 +234,7 @@ body {
     padding-top: 1px;
     padding-left: 22px;
     padding-right: 23px;
-    padding-bottom: 20px;
+    padding-bottom: 35px;
 
     border-radius: 10px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
@@ -251,4 +252,75 @@ body {
     opacity: 0.4;
     border: 0px;
     cursor: not-allowed;
+}
+
+input[type="file"] {
+    padding: 5px;
+    width: 320px;
+    font-family: 'Poppins', 'Yu Gothic UI', 'メイリオ', Meiryo, 'ＭＳ ゴシック', 'ヒラギノ角ゴシック', 'Hiragino Sans', 'ヒラギノ角ゴ StdN', 'Hiragino Kaku Gothic StdN', 'Arial', 'Avenir', sans-serif;
+}
+
+::file-selector-button {
+    background-color: rgb(88, 101, 242);
+    cursor: pointer;
+    padding: 10px;
+    color: white;
+    border: 0px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-right: 10px;
+}
+
+::file-selector-button:hover {
+    background-color: #4452bb;
+    cursor: pointer;
+    padding: 10px;
+    color: white;
+    border: 0px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-right: 10px;
+}
+
+hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    opacity: 0.3;
+}
+
+.en {
+    font-size: 20px;
+    margin-top: 1px;
+}
+
+.clearbtn {
+    background-color: #d22d39;
+    border: 0px;
+    margin-left: 30px;
+    margin-top: 5px;
+    width: 145px;
+    height: 41px;
+    transition: background-color 0.2s ease;
+}
+
+.clearbtn:hover {
+    background-color: #bc2934;
+    border: 0px;
+    margin-left: 30px;
+    margin-top: 5px;
+    width: 145px;
+    height: 41px;
+    transition: background-color 0.2s ease;
+}
+
+.file-input {
+    display: flex;
+}
+
+.file {
+    margin-bottom: 3px;
 }
