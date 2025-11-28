@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import "./styles/discord.css";
 import Toolbar from './components/Toolbar';
 import Editor from './components/Editor';
