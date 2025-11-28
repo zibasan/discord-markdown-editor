@@ -46,7 +46,7 @@ This web app allows you to edit and preview messages using the Markdown syntax t
 
 # How to Use
 
-1. Access this project's [GitHub Pages](#)
+1. Access this project's [GitHub Pages](https://zibasan.github.io/discord-markdown-editor/)
 2. Write your message in the left area
    ✅️ You can insert Markdown by pressing the button above the text input field
 3. Check your message's style in the right area
