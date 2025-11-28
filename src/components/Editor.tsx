@@ -7,11 +7,13 @@ type EditorProps = {
 
 export default function Editor({ value, onChange }: EditorProps) {
     return (
-        <textarea
-            className='editor'
-            value={value}
-            onChange={(e) => onChange(e.target.value)}
-            placeholder='送信したいメッセージを入力...'
-        />
+        <>
+            <textarea
+                className='editor'
+                value={value}
+                onChange={(e) => onChange(e.target.value)}
+                placeholder='送信したいメッセージを入力...'
+            />
+        </>
     );
 }

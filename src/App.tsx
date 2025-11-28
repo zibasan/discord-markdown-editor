@@ -3,6 +3,7 @@ import "./styles/discord.css";
 import Toolbar from './components/Toolbar';
 import Editor from './components/Editor';
 import Preview from './components/Preview';
+import Copy from './components/copy';
 
 
 
@@ -12,23 +13,22 @@ function App() {
   return (
     <>
       <div className='app'>
-        <h1 className='title'>Discord MarkDown Editor</h1>
+        <h1 className='title'>Discord Markdown Editor</h1>
 
         <div className='container'>
           <div className='left'>
-            <h2>表示したいテキスト</h2>
+            <h2 className='editor-txt'>表示したいテキスト</h2>
+            ※Discordで使用できないMarkdownはプレビューに反映されません。
 
             <Toolbar onInsert={(snippet) => setText((prev) => prev + snippet)} />
             <Editor value={text} onChange={setText} />
           </div>
 
           <div className='right'>
-            <h2>プレビュー</h2>
+            <h2 className='preview-txt'>プレビュー</h2>
             <Preview markdown={text} />
 
-            <button onClick={() => navigator.clipboard.writeText(text)} className='copy-button'>
-              クリップボードへコピー
-            </button>
+            <Copy text={text} />
           </div>
         </div>
 
