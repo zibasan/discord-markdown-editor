@@ -17,11 +17,11 @@ export default function Copy({ text }: Copyprops) {
 
     return (
         <div>
-            <button onClick={handleCopy} className='copy-button' disabled={text.trim() === ""}>クリップボードへコピー</button>
+            <button onClick={handleCopy} className='copy-button' disabled={text.trim() === ""}>COPY TO CLIPBOARD</button>
 
             {isCopied && (
                 <div style={{ color: "green", marginTop: "8px" }}>
-                    ✅️ コピーしました！
+                    ✅️ Copied!
                 </div>
             )}
         </div>

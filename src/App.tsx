@@ -17,15 +17,15 @@ function App() {
 
         <div className='container'>
           <div className='left'>
-            <h2 className='editor-txt'>表示したいテキスト</h2>
-            ※Discordで使用できないMarkdownはプレビューに反映されません。
+            <h2 className='editor-txt'>送信したいメッセージ | Your Message</h2>
+            ※Discordで使用できないMarkdownはプレビューに反映されません。<br></br>* Markdown that cannot be used in Discord will not be reflected in the preview.
 
             <Toolbar onInsert={(snippet) => setText((prev) => prev + snippet)} />
             <Editor value={text} onChange={setText} />
           </div>
 
           <div className='right'>
-            <h2 className='preview-txt'>プレビュー</h2>
+            <h2 className='preview-txt'>プレビュー | Preview</h2>
             <Preview markdown={text} />
 
             <Copy text={text} />
