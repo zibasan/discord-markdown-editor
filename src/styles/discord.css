@@ -1,40 +1,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap');
 
-
+/* ---------------------------
+   ルート / ベーススタイル
+   --------------------------- */
 #root {
-    max-width: 1300px;
+    max-width: 1500px;
     position: relative;
     z-index: 1;
-    padding-left: 20px;
 }
 
 body {
-    padding: 10px;
+    padding: 20px;
+    overflow: auto;
     position: relative;
-    font-family: 'Poppins', 'Yu Gothic UI', 'メイリオ', Meiryo, 'ＭＳ ゴシック', 'ヒラギノ角ゴシック', 'Hiragino Sans', 'ヒラギノ角ゴ StdN', 'Hiragino Kaku Gothic StdN', 'Arial', 'Avenir', sans-serif;
+    font-family: 'Poppins', 'Yu Gothic UI', 'メイリオ', Meiryo,
+        'ＭＳ ゴシック', 'ヒラギノ角ゴシック', 'Hiragino Sans',
+        'ヒラギノ角ゴ StdN', 'Hiragino Kaku Gothic StdN',
+        'Arial', 'Avenir', sans-serif;
     color: white;
     user-select: none;
     align-content: center;
+    background-attachment: fixed;
+    display: block;
 }
 
+/* ---------------------------
+   背景グラデーションアニメーション
+   --------------------------- */
 @keyframes gradient {
 
     /* アニメーション開始時 (0%) */
     0% {
-        /* 背景画像の (X: 0%, Y: 0%) の位置、つまり「左上」を表示 */
         background-position: 0% 0%;
     }
 
-    /* アニメーションの中間地点 (50%) */
+    /* 中間地点 (50%) */
     50% {
-        /* 背景画像の (X: 100%, Y: 100%) の位置、つまり「右下」に移動 */
         background-position: 100% 100%;
     }
 
-    /* アニメーション終了時 (100%) */
+    /* 終了時 (100%) */
     100% {
-        /* 最初の「左上」に戻り、スムーズにループする */
         background-position: 0% 0%;
     }
 }
@@ -42,44 +49,36 @@ body {
 body {
     /* 4色の線形グラデーション（色が滑らかに変わる画像）を背景に指定 */
     background: linear-gradient(315deg,
-            /* 315度（右斜め上から左斜め下）の角度で */
             rgb(24, 0, 101) 3%,
-            /* 3%の位置に暗い紫 */
             rgba(60, 132, 206, 1) 38%,
-            /* 38%の位置に青 */
             rgb(5, 61, 57) 68%,
-            /* 68%の位置に暗い緑 */
-            rgb(16, 135, 66) 98%
-            /* 98%の位置に明るい緑 */
-        );
+            rgb(16, 135, 66) 98%);
 
-    /* アニメーションを適用する命令 */
+    /* アニメーションを適用 */
     animation: gradient 15s ease infinite;
 
-    /* 最重要 背景画像のサイズを、画面の縦横4倍の大きさにする */
-    background-size: 1000% 1000%;
-
-    /* ページをスクロールしても背景が固定されるようにする */
+    /* 背景画像のサイズを、画面の縦横4倍の大きさにする */
+    background-size: 400% 400%;
     background-attachment: fixed;
 }
 
-
-
+/* ---------------------------
+   .app / タイトル / エディタ系
+   --------------------------- */
 .app h1.title {
     text-align: center !important;
     width: 100%;
-    margin-left: 50px;
 }
 
 .app .editor-txt {
-    margin-bottom: 0.1px;
-    margin-top: 0.1px;
+    margin: 0.1px 0;
 }
 
 .app button {
     color: white;
 }
 
+/* --- テキストエリア (.editor) --- */
 .editor {
     width: 550px;
     height: 440px;
@@ -92,13 +91,24 @@ body {
     color: white;
     font-family: 'Source Code Pro', monospace;
     border-color: #4f545c;
+    transition: border 0.2s ease;
 }
 
+.editor:focus {
+    border: 1.2px solid #7484ff;
+    transition: border 0.2s ease;
+    outline: none;
+    box-shadow: 0 0 8px rgba(103, 179, 255, 0.786);
+}
+
+/* ---------------------------
+   プレビュー (.preview)
+   --------------------------- */
 .preview {
     width: 650px;
     height: 500px;
     margin-top: 20px;
-    padding: 16px;
+    padding: 16px 20px;
     border-radius: 8px;
     background: #2f3136;
     /* Discord濃い背景 */
@@ -109,7 +119,6 @@ body {
     overflow-wrap: break-word;
     word-break: break-word;
     overflow-y: auto;
-    padding-left: 20px;
 }
 
 .preview code {
@@ -146,55 +155,52 @@ body {
     color: #b9bbbe;
 }
 
-
+/* ---------------------------
+   ツールバー / ボタン
+   --------------------------- */
 .toolbar button,
 .toolbar2 button {
-    margin-top: 10px;
-    margin-left: 5px;
-    margin-bottom: 1px;
-    margin-right: 1px;
-    padding-left: 17px;
-    padding-right: 17px;
+    margin: 10px 1px 1px 5px;
+    padding: 0 17px;
     justify-content: center;
     align-content: center;
-
     background-color: rgb(88, 101, 242);
     color: white;
-    border: 0px;
+    border: 0;
     transition: background-color 0.2s ease;
 }
 
 .toolbar2 button {
-    margin-top: 10px;
-    margin-left: 5px;
-    margin-bottom: 14px;
-    margin-right: 1px;
-    padding-left: 15px;
-    padding-right: 15px;
-
-    background-color: rgb(88, 101, 242);
-    color: white;
-    border: 0px;
-    transition: background-color 0.2s ease;
+    margin: 10px 1px 14px 5px;
+    padding: 0 15px;
 }
 
 .toolbar button:hover:not(:disabled),
 .toolbar2 button:hover:not(:disabled) {
     background-color: #4452bb;
-    border: 0px;
+    border: 0;
     transition: background-color 0.2s ease;
 }
 
 .copy-button {
     background-color: rgb(88, 101, 242);
-    border: 0px;
+    border: 0;
     transition: background-color 0.2s ease;
+    margin-top: 20px;
+    /* コピーボタンの位置調整 */
 }
 
 .copy-button:hover:not(:disabled) {
     background-color: #4452bb;
-    border: 0px;
+    border: 0;
     transition: background-color 0.2s ease;
+}
+
+.copy-button:disabled {
+    background-color: #303678;
+    opacity: 0.4;
+    border: 0;
+    cursor: not-allowed;
 }
 
 .code-btn {
@@ -202,13 +208,22 @@ body {
     justify-content: center;
 }
 
-
 .toolbar2 {
-    margin-top: 0px;
+    margin-top: 0;
+}
+
+/* ---------------------------
+   レイアウトコンテナ
+   --------------------------- */
+
+@media (max-width: 1200px) {
+    .container {
+        flex-direction: column;
+        /* 横 → 縦 */
+    }
 }
 
 .container {
-    align-items: center;
     display: flex;
     gap: 40px;
     /* 左右の隙間 */
@@ -216,82 +231,61 @@ body {
 }
 
 /* 左右の幅バランス */
-.left {
-    flex: 1;
-    background-color: rgba(84, 84, 84, 0.4);
-    padding: 20px;
-    padding-top: 2px;
-    border-radius: 10px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 16px;
-}
-
+.left,
 .right {
     flex: 1;
     background-color: rgba(84, 84, 84, 0.4);
-
-    padding-top: 1px;
-    padding-left: 22px;
-    padding-right: 23px;
-    padding-bottom: 35px;
-
-    border-radius: 10px;
+    border-radius: 16px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
     border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 16px;
 }
 
-/* コピーボタンの位置調整 */
-.copy-button {
-    margin-top: 20px;
+.left {
+    padding: 20px;
+    padding-top: 2px;
 }
 
-.copy-button:disabled {
-    background-color: #303678;
-    opacity: 0.4;
-    border: 0px;
-    cursor: not-allowed;
+.right {
+    padding: 1px 23px 35px 22px;
+    /* padding-top, left, right, bottom */
 }
 
+/* ---------------------------
+   ファイル入力 / ボタン系
+   --------------------------- */
 input[type="file"] {
     padding: 5px;
-    width: 320px;
-    font-family: 'Poppins', 'Yu Gothic UI', 'メイリオ', Meiryo, 'ＭＳ ゴシック', 'ヒラギノ角ゴシック', 'Hiragino Sans', 'ヒラギノ角ゴ StdN', 'Hiragino Kaku Gothic StdN', 'Arial', 'Avenir', sans-serif;
+    width: 250px;
+    font-family: 'Poppins', 'Yu Gothic UI', 'メイリオ', Meiryo,
+        'ＭＳ ゴシック', 'ヒラギノ角ゴシック',
+        'Hiragino Sans', 'ヒラギノ角ゴ StdN',
+        'Hiragino Kaku Gothic StdN', 'Arial', 'Avenir', sans-serif;
+    font-size: 14px;
 }
 
 ::file-selector-button {
     background-color: rgb(88, 101, 242);
     cursor: pointer;
-    padding: 10px;
+    padding: 10px 15px;
     color: white;
-    border: 0px;
-    border-radius: 4px;
+    border: 0;
+    border-radius: 6px;
     transition: background-color 0.2s ease;
-    padding-left: 15px;
-    padding-right: 15px;
     margin-right: 10px;
 }
 
 ::file-selector-button:hover {
     background-color: #4452bb;
-    cursor: pointer;
-    padding: 10px;
-    color: white;
-    border: 0px;
-    border-radius: 4px;
-    transition: background-color 0.2s ease;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-right: 10px;
 }
 
 hr {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin: 10px 0;
     opacity: 0.3;
 }
 
+/* ---------------------------
+   その他ユーティリティ
+   --------------------------- */
 .en {
     font-size: 20px;
     margin-top: 1px;
@@ -299,22 +293,17 @@ hr {
 
 .clearbtn {
     background-color: #d22d39;
-    border: 0px;
-    margin-left: 30px;
+    border: 0;
+    margin-left: 10px;
     margin-top: 5px;
     width: 145px;
     height: 41px;
     transition: background-color 0.2s ease;
+    font-size: 16px;
 }
 
 .clearbtn:hover {
     background-color: #bc2934;
-    border: 0px;
-    margin-left: 30px;
-    margin-top: 5px;
-    width: 145px;
-    height: 41px;
-    transition: background-color 0.2s ease;
 }
 
 .file-input {
