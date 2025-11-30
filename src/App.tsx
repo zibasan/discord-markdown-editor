@@ -8,12 +8,30 @@ import Copy from './components/copy';
 function App() {
   const [text, setText] = useState("Hello, World!");
   const [hasFile, setHasFile] = useState(false);
+  const [error, setError] = useState("");
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleFileLoad = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setError("");
+
     const file = e.target.files?.[0];
     if (!file) return;
 
+    // 拡張子チェック
+    const fileName: string = file.name.toLowerCase();
+    const allowed: boolean = fileName.endsWith(".txt") || fileName.endsWith(".md");
+
+    // .txtか.mdじゃない
+    if (!allowed) {
+      setError(".txt または .md のファイルを選択してください。");
+
+      // ファイルクリア（同じファイル選択時の問題も防ぐ）
+      if (fileInputRef.current) fileInputRef.current.value = "";
+
+      return;
+    }
+
+    // 正常に読み込んだとき
     const reader = new FileReader();
 
     setHasFile(true);
@@ -25,6 +43,7 @@ function App() {
 
     reader.readAsText(file);
   };
+
 
   const clearFile = () => {
     if (fileInputRef.current) {
@@ -56,6 +75,7 @@ function App() {
                 onChange={handleFileLoad}
               />
               {hasFile && <button onClick={clearFile} className='clearbtn'>ファイルをクリア</button>}
+              {error && <p className="error-message"><b>{error}</b></p>}
             </div>
 
             <hr></hr>

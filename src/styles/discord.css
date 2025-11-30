@@ -155,6 +155,15 @@ body {
     color: #b9bbbe;
 }
 
+.preview a {
+    color: solid 2.5px rgb(149, 188, 244);
+}
+
+.preview a:hover {
+    text-decoration: underline;
+    color: solid 2.5px rgb(149, 188, 244);
+}
+
 /* ---------------------------
    ツールバー / ボタン
    --------------------------- */
@@ -312,4 +321,14 @@ hr {
 
 .file {
     margin-bottom: 3px;
+}
+
+.error-message {
+    color: #ff3232;
+    margin-top: 14px;
+    font-size: 16px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    padding: auto;
+    padding-left: 4px;
 }
