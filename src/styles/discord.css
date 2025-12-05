@@ -4,6 +4,25 @@
 /* ---------------------------
    ルート / ベーススタイル
    --------------------------- */
+
+* {
+    /* すべての要素に適用するのが一般的 */
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+    /* 適切な最上位コンテナにも */
+    margin: 0;
+    padding: 0;
+    min-width: 120vh;
+    min-height: 100vh;
+    margin-bottom: 20px;
+    max-height: 100%;
+    /* 画面の高さ全体を最低限の高さとする */
+}
+
 #root {
     max-width: 1500px;
     position: relative;
@@ -11,7 +30,6 @@
 }
 
 body {
-    padding: 20px;
     overflow: auto;
     position: relative;
     font-family: 'Poppins', 'Yu Gothic UI', 'メイリオ', Meiryo,
@@ -24,6 +42,8 @@ body {
     background-attachment: fixed;
     display: block;
 }
+
+
 
 /* ---------------------------
    背景グラデーションアニメーション
@@ -80,7 +100,7 @@ body {
 
 /* --- テキストエリア (.editor) --- */
 .editor {
-    width: 550px;
+    width: 450px;
     height: 440px;
     padding: 10px;
     font-size: 16px;
@@ -105,7 +125,7 @@ body {
    プレビュー (.preview)
    --------------------------- */
 .preview {
-    width: 650px;
+    width: 450px;
     height: 500px;
     margin-top: 20px;
     padding: 16px 20px;
@@ -225,10 +245,53 @@ body {
    レイアウトコンテナ
    --------------------------- */
 
+/* 画面幅が1200px以下の時に適用されるスタイル */
 @media (max-width: 1200px) {
+    /* .container の設定は既に1200px以下で縦並びになっているため、ここでは主に幅の調整を行います */
+
     .container {
         flex-direction: column;
-        /* 横 → 縦 */
+        align-items: center;
+    }
+
+    .editor {
+        width: 700px;
+        /* エディタの幅を画面いっぱいに */
+        height: 300px;
+        /* 必要に応じて高さを調整 */
+    }
+
+    .preview {
+        width: 700px;
+        /* プレビューの幅を画面いっぱいに */
+        height: 400px;
+        margin-top: 10px;
+        /* 上部のマージンを調整 */
+    }
+
+    .left,
+    .right {
+        width: 100%;
+        /* 左右のコンテナの幅を画面いっぱいに */
+        box-sizing: border-box;
+        /* paddingやborderをwidthに含める */
+        flex: none;
+        /* Flexboxの比率指定を解除 */
+    }
+
+    body {
+        padding: 10px;
+        /* 画面全体の余白を減らす */
+    }
+
+    /* ファイル入力欄のボタンなどを縦に並べる、または幅を調整 */
+    .file-input {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    ::file-selector-button {
+        margin-bottom: 10px;
     }
 }
 
@@ -255,7 +318,7 @@ body {
 }
 
 .right {
-    padding: 1px 23px 35px 22px;
+    padding: 1px 23px 20px 22px;
     /* padding-top, left, right, bottom */
 }
 
